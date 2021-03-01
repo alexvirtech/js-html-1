@@ -4,7 +4,7 @@ export class Site{
     constructor(selector){
         this.$el = document.querySelector(selector)        
     }    
-    render(){
+    render(model){
         this.$el.innerHTML = ''
         model.forEach(block=>{
             this.$el.insertAdjacentHTML('beforeEnd',block.toHTML())

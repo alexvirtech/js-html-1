@@ -1,7 +1,5 @@
 import './styles/main.css'
-import {Site} from './site'
-import {Panel} from './panel'
+import {model} from './model' 
+import {App} from './app'
 
-const panel = new Panel('#panel')
-const site = new Site('#site')
-site.render()
+new App(model).init()
