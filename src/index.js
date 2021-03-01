@@ -1,35 +1,7 @@
-import {col,row} from './utils'
-import image from './assets/ort.jpg'
 import './styles/main.css'
+import {Site} from './site'
+import {Panel} from './panel'
 
-// temp for text content
-const tempText = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi temporibus libero consectetur inventore? Nihil praesentium culpa officiis suscipit esse voluptates vel earum hic maiores atque tenetur quod, fugit facilis porro.'
-// model - data
-const model = [
-    { type: 'title', value: 'Hello ORT from JS!!!!' },
-    { type: 'text', value: tempText },
-    { type: 'columns', value: [tempText, tempText, tempText, tempText] },
-    { type: 'image', value: './assets/ort.jpg' }
-]
-// create blocks
-const Block = (type,value) => {
-    switch (type) {
-        case 'title':
-            return row(col(`<h1>${value}</h1>`))            
-        case 'text':
-            return row(col(`<p>${value}</p>`))                        
-        case 'columns':
-            const cols = value.map(v=>col(v)).join('')
-            return row(cols)
-        case 'image':    
-            return row(col(`<img class="img-responsive" src="${image}"/>`))                            
-    }
-}
-
-// generate html
-const html = model.map(m=>{
-    return Block(m.type,m.value)
-})
-
-// insert html in div
-document.querySelector('#site').insertAdjacentHTML('beforeEnd',html.join(''))
+const panel = new Panel('#panel')
+const site = new Site('#site')
+site.render()
