@@ -1,0 +1,27 @@
+{
+  "name": "js_html_1",
+  "version": "1.0.0",
+  "description": "This project is an example of HTML page generated with JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "go": "parcel ./src/index.html -p 4000",
+    "build": "parcel build ./src/index.html --no-source-maps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexvirtech/js-html-1.git"
+  },
+  "keywords": [
+    "js",
+    "html"
+  ],
+  "author": "Alex Keselman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexvirtech/js-html-1/issues"
+  },
+  "homepage": "https://github.com/alexvirtech/js-html-1#readme",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
