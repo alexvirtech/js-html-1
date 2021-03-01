@@ -1,3 +1,7 @@
+import {col,row} from './utils'
+import image from './assets/ort.jpg'
+import './styles/main.css'
+
 // temp for text content
 const tempText = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi temporibus libero consectetur inventore? Nihil praesentium culpa officiis suscipit esse voluptates vel earum hic maiores atque tenetur quod, fugit facilis porro.'
 // model - data
@@ -11,34 +15,14 @@ const model = [
 const Block = (type,value) => {
     switch (type) {
         case 'title':
-            return `
-                <div class="row">
-                    <div class="col-sm">
-                        <h1>${value}</h1>
-                    </div>
-                </div>
-            `
+            return row(col(`<h1>${value}</h1>`))            
         case 'text':
-            return `
-                <div class="row">
-                    <div class="col-sm">
-                        <p>${value}</p>
-                    </div>
-                </div>
-            `
+            return row(col(`<p>${value}</p>`))                        
         case 'columns':
-            const cols = value.map(v=>`<div class="col-sm">${v}</div>`).join('')
-            return `
-                <div class="row">${cols}</div>
-            `
-        case 'image':            
-            return `
-                <div class="row">
-                    <div class="col-sm">
-                        <img class="img-responsive" src="${value}"/>
-                    </div>
-                </div>
-            `
+            const cols = value.map(v=>col(v)).join('')
+            return row(cols)
+        case 'image':    
+            return row(col(`<img class="img-responsive" src="${image}"/>`))                            
     }
 }
 
